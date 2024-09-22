@@ -29,7 +29,7 @@ from sklearn.metrics import confusion_matrix, classification_report
 # Importing the dataset
 DATASET_COLUMNS=['target','ids','date','flag','user','text']
 DATASET_ENCODING = "ISO-8859-1"
-df = pd.read_csv('C:\Users\talha\Downloads/training.1600000.processed.noemoticon.csv', encoding=DATASET_ENCODING, names=DATASET_COLUMNS)
+df = pd.read_csv('/workspaces/Sentiment-Analysis-on-Twitter-Data-/test.csv', encoding=DATASET_ENCODING, names=DATASET_COLUMNS)
 df.sample(5)
 
 
@@ -307,7 +307,8 @@ def model_Evaluate(model):
     group_names = ['True Neg','False Pos', 'False Neg','True Pos']
     group_percentages = ['{0:.2%}'.format(value) for value in cf_matrix.flatten() / np.sum(cf_matrix)]
     labels = [f'{v1}n{v2}' for v1, v2 in zip(group_names,group_percentages)]
-lemmatizer_on_text   labels = np.asarray(labels).reshape(2,2)
+    lemmatizer_on_text   
+    labels = np.asarray(labels).reshape(2,2)
     sns.heatmap(cf_matrix, annot = labels, cmap = 'Blues',fmt = '',
     xticklabels = categories, yticklabels = categories)
     plt.xlabel("Predicted values", fontdict = {'size':14}, labelpad = 10)
